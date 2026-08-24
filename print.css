@@ -1,0 +1,16 @@
+/* Aktif hanya saat mencetak (window.print). Styling visual dokumen (.doc, .doc-head,
+   dst) ada di style.css supaya PERSIS SAMA dengan tampilan Pratinjau di layar —
+   di sini hanya aturan khusus cetak: ukuran kertas & menyembunyikan elemen lain. */
+
+@page {
+  size: A4;
+  margin: 14mm 12mm;
+}
+
+body.printing > *:not(#print-area){
+  display:none !important;
+}
+
+#print-area{
+  display:block !important;
+}
