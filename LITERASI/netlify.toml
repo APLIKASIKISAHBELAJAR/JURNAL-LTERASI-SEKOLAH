@@ -1,0 +1,14 @@
+[build]
+  publish = "."
+
+[[headers]]
+  for = "/*"
+  [headers.values]
+    X-Frame-Options = "SAMEORIGIN"
+    X-Content-Type-Options = "nosniff"
+
+# Catatan: TIDAK ada redirect catch-all ke index.html di sini dengan sengaja.
+# Situs ini punya beberapa halaman statis terpisah (index.html untuk guru/kepsek,
+# siswa.html untuk siswa) — Netlify sudah otomatis menyajikan tiap file HTML
+# sesuai urlnya tanpa perlu redirect. Menambahkan redirect "/*" -> "/index.html"
+# akan membuat /siswa.html ikut dialihkan ke index.html dan halaman siswa jadi rusak.
